@@ -19,6 +19,6 @@ public class Authority implements Serializable {
     @Size(max = 50)
     @Id
     @Column(length = 50)
-    private String name;
+    private String role;
 
 }

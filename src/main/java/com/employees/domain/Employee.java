@@ -9,7 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import java.io.Serializable;
-import java.time.Instant;
+import java.sql.Date;
 
 @Entity
 @Data
@@ -27,7 +27,7 @@ public class Employee implements Serializable {
 
     private Double salary;
 
-    private Instant birthDate;
+    private Date birthDate;
 
     private Boolean active;
 
