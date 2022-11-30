@@ -11,8 +11,8 @@
     <groupId>com.employees</groupId>
     <artifactId>employees</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>employees</name>
-    <description>employees</description>
+    <name>Employees</name>
+    <description>Employees App</description>
     <properties>
         <java.version>11</java.version>
     </properties>
