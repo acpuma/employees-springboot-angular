@@ -1,0 +1,29 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <h2 data-cy="departmentDetailsHeading"><span>Department {{departmentId}}</span></h2>
+    <div *ngIf="department">
+      <h2 data-cy="departmentDetailsHeading"><span>Department {{departmentId}}</span></h2>
+
+      <hr />
+
+      <dl class="row-md">
+        <dt><span>ID</span></dt>
+        <dd>
+          <span>{{ department.id }}</span>
+        </dd>
+        <dt><span>Department Name</span></dt>
+        <dd>
+          <span>{{ department.departmentName }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <span>Back</span>
+      </button>
+
+      <button type="button" class="btn btn-primary">
+        <span>Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,2 +1,12 @@
-Employees App
-<router-outlet></router-outlet>
+
+<h1>{{title}} App </h1>
+
+<nav>
+  <ul>
+    <li><a routerLink="/employees-component" routerLinkActive="active" ariaCurrentWhenActive="page">Employees Component</a></li>
+    <li><a routerLink="/departments-component" routerLinkActive="active" ariaCurrentWhenActive="page">Departments Component</a></li>
+  </ul>
+</nav>
+<div>
+  <router-outlet></router-outlet>
+</div>

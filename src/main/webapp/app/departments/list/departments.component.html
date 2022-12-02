@@ -1,0 +1,74 @@
+<div>
+  <h2>
+    <span>Departments</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2">
+        <span>Refresh list</span>
+      </button>
+      <button
+        class="btn btn-primary create-department"
+        [routerLink]="['/department/new']"
+      >
+        <span> Create a new Department </span>
+      </button>
+    </div>
+  </h2>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="departments?.length === 0">
+    <span>No Departments found</span>
+  </div>
+
+  <div class="table-responsive table-entities" id="entities" *ngIf="departments && departments.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+      <tr>
+        <th scope="col">
+          <div class="d-flex">
+            <span>ID</span>
+          </div>
+        </th>
+        <th scope="col" >
+          <div class="d-flex">
+            <span>Department Name</span>
+          </div>
+        </th>
+        <th scope="col"></th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let department of departments;">
+        <td>
+          <a [routerLink]="['/department', department.id, 'view']">{{ department.id }}</a>
+        </td>
+        <td>{{ department.departmentName }}</td>
+        <td class="text-end">
+          <div class="btn-group">
+            <button
+              type="submit"
+              [routerLink]="['/department', department.id, 'view']"
+              class="btn btn-info btn-sm"
+              data-cy="entityDetailsButton"
+            >
+              <span class="d-none d-md-inline">View</span>
+            </button>
+
+            <button
+              type="submit"
+              [routerLink]="['/department', department.id, 'edit']"
+              class="btn btn-primary btn-sm"
+              data-cy="entityEditButton"
+            >
+              <span class="d-none d-md-inline">Edit</span>
+            </button>
+
+            <button type="submit" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+              <span class="d-none d-md-inline">Delete</span>
+            </button>
+          </div>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
