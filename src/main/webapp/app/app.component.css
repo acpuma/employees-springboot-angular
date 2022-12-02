@@ -5,3 +5,11 @@ a.nav-link {
   font-weight: 400;
 }
 
+.logo-img {
+  height: 45px;
+  width: 45px;
+  display: inline-block;
+  vertical-align: middle;
+  background: url('../assets/employees.png') no-repeat center center;
+  background-size: contain;
+}
