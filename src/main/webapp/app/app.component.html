@@ -1,12 +1,18 @@
-
-<h1>{{title}} App </h1>
-
-<nav>
-  <ul>
-    <li><a routerLink="/employees-component" routerLinkActive="active" ariaCurrentWhenActive="page">Employees Component</a></li>
-    <li><a routerLink="/departments-component" routerLinkActive="active" ariaCurrentWhenActive="page">Departments Component</a></li>
+<nav data-cy="navbar" class="navbar navbar-dark navbar-expand-md bg-black">
+  <div class="container-fluid">
+  <h1>{{title}} App </h1>
+  <div class="navbar-collapse collapse" id="navbarResponsive">
+  <ul class="navbar-nav ms-auto">
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/employees-component" routerLinkActive="active" >
+        Employees</a></li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/departments-component" routerLinkActive="active" ariaCurrentWhenActive="page">
+        Departments</a></li>
   </ul>
+  </div>
+  </div>
 </nav>
-<div>
+<div class="m-5 mt-1">
   <router-outlet></router-outlet>
 </div>

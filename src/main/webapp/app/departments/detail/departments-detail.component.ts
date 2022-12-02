@@ -17,4 +17,8 @@ export class DepartmentsDetailComponent implements OnInit{
     console.log('Department Id : ' + this.departmentId)
     this.service.find(this.departmentId).subscribe(dep => this.department=dep);
   }
+
+  previousState(): void {
+    window.history.back();
+  }
 }

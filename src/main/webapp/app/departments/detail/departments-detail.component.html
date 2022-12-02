@@ -1,4 +1,4 @@
-<div class="d-flex justify-content-center">
+<div class="">
   <div class="col-8">
     <h2 data-cy="departmentDetailsHeading"><span>Department {{departmentId}}</span></h2>
     <div *ngIf="department">
@@ -17,7 +17,7 @@
         </dd>
       </dl>
 
-      <button type="submit" class="btn btn-info" data-cy="entityDetailsBackButton">
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
         <span>Back</span>
       </button>
 
