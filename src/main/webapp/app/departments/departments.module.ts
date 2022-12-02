@@ -4,12 +4,13 @@ import { CommonModule } from '@angular/common';
 import { DepartmentsRoutingModule } from './departments-routing.module';
 import { DepartmentsDetailComponent } from './detail/departments-detail.component';
 import {FormsModule} from "@angular/forms";
-import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
+import { DepartmentsDeleteComponent } from './delete/departments-delete.component';
 
 
 @NgModule({
   declarations: [
-    DepartmentsDetailComponent
+    DepartmentsDetailComponent,
+    DepartmentsDeleteComponent
   ],
   exports: [
     DepartmentsDetailComponent
@@ -17,8 +18,7 @@ import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
   imports: [
     CommonModule,
     DepartmentsRoutingModule,
-    FormsModule,
-    FontAwesomeModule
+    FormsModule
   ]
 })
 export class DepartmentsModule { }

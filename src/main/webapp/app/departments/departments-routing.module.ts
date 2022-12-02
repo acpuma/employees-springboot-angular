@@ -5,7 +5,8 @@ import {DepartmentsComponent} from "./list/departments.component";
 
 const routes: Routes = [
   {path: '', component: DepartmentsComponent},
-  {path: 'department/:id/view', component: DepartmentsDetailComponent}
+  {path: 'department/:id/view', component: DepartmentsDetailComponent},
+  {path: 'department/:id/delete', component: DepartmentsDetailComponent}
 ];
 
 @NgModule({
