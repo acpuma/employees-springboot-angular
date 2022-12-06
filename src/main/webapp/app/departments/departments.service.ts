@@ -20,11 +20,20 @@ export class DepartmentsService {
     return this.http.get<Department[]>(this.resourceUrl);
   }
 
-  create(department:NewDepartment): Observable<Department>{
+  create(department: Department | (Omit<Department, "id"> & { id: null })): Observable<Department>{
+    console.log("Department :" + JSON.stringify(department));
     return this.http.post<Department>(this.resourceUrl, department);
   }
 
-  delete(id:number): Observable<any> {
+  delete(id: number | null): Observable<any> {
     return this.http.delete(`${this.resourceUrl}${id}`);
+  }
+
+  update(department: Department): Observable<Department> {
+    return this.http.put<Department>(`${this.resourceUrl}${this.getDepartmentIdentifier(department)}`,department);
+  }
+
+  getDepartmentIdentifier(department: Pick<Department,  'id'>): number | null {
+    return department.id;
   }
 }

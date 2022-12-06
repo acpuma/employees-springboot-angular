@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { DepartmentsRoutingModule } from './departments-routing.module';
 import { DepartmentsDetailComponent } from './detail/departments-detail.component';
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { DepartmentsDeleteComponent } from './delete/departments-delete.component';
 import { DepartmentsUpdateComponent } from './update/departments-update.component';
 
@@ -17,10 +17,11 @@ import { DepartmentsUpdateComponent } from './update/departments-update.componen
   exports: [
     DepartmentsDetailComponent
   ],
-  imports: [
-    CommonModule,
-    DepartmentsRoutingModule,
-    FormsModule
-  ]
+    imports: [
+        CommonModule,
+        DepartmentsRoutingModule,
+        FormsModule,
+        ReactiveFormsModule
+    ]
 })
 export class DepartmentsModule { }
