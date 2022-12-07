@@ -14,9 +14,10 @@ import { DepartmentsUpdateComponent } from './update/departments-update.componen
     DepartmentsDeleteComponent,
     DepartmentsUpdateComponent
   ],
-  exports: [
-    DepartmentsDetailComponent
-  ],
+    exports: [
+        DepartmentsDetailComponent,
+        DepartmentsUpdateComponent
+    ],
     imports: [
         CommonModule,
         DepartmentsRoutingModule,

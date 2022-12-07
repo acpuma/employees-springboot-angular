@@ -11,7 +11,6 @@ type DepartmentFormDefaults = Pick<NewDepartment, 'id'>;
 
 export type DepartmentFormGroup = FormGroup<DepartmentFormGroupContent>;
 
-
 @Injectable({ providedIn: 'root' })
 export class DepartmentsFormService {
 
@@ -29,15 +28,6 @@ export class DepartmentsFormService {
 
   getDepartment(form: DepartmentFormGroup): Department | NewDepartment {
     return form.getRawValue() as Department | NewDepartment;
-  }
-
-  resetForm(form: DepartmentFormGroup, department: Department): void {
-    const departmentRawValue = {...this.getFormDefaults(), department};
-    form.reset({
-      ...departmentRawValue,
-      id: {value: departmentRawValue.id, disabled:true},
-    } as any
-    )
   }
 
   private getFormDefaults(): DepartmentFormDefaults {

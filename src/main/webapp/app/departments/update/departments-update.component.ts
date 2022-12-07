@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Department} from "../department.model";
 import {DepartmentsService} from "../departments.service";
 import {ActivatedRoute} from "@angular/router";
@@ -11,21 +11,26 @@ import {finalize, Observable} from "rxjs";
 })
 export class DepartmentsUpdateComponent implements OnInit{
   isSaving = false;
-  department: Department | null = null;
-  editForm: DepartmentFormGroup = this.formService.createDepartmentFormGroup();
+  departmentId?: number | null = null;
+  @Input() department?: Department;
+  editForm: DepartmentFormGroup = this.formService.createDepartmentFormGroup(this.department);
   constructor(protected service: DepartmentsService,
               protected route : ActivatedRoute,
               protected formService: DepartmentsFormService) {
   }
 
   ngOnInit(): void {
-    this.route.data.subscribe(({department}) => {
-      this.department = department;
-      console.log("Updating department : " + JSON.stringify(department))
-      if (department) {
-        this.updateForm(department);
-      }
-    });
+    console.log(" ID param : " + this.route.snapshot.paramMap.get('id'));
+    this.departmentId = Number(this.route.snapshot.paramMap.get('id'));
+    if (this.departmentId) {
+      this.service.find(this.departmentId).subscribe(dep => {
+        this.department = dep;
+        console.log("Updating department : " + JSON.stringify(this.department));
+        if (this.department) {
+          this.editForm = this.formService.createDepartmentFormGroup(this.department);
+        }
+      });
+    }
   }
 
   previousState(): void {
@@ -47,11 +52,5 @@ export class DepartmentsUpdateComponent implements OnInit{
       next: () => this.previousState(),
       error: () => console.error('subscribeToSaveResponse error')
     });
-  }
-
-
-  private updateForm(department: Department) {
-    this.department = department;
-    this.formService.resetForm(this.editForm, department);
   }
 }
