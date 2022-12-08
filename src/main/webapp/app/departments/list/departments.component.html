@@ -54,11 +54,12 @@
               type="submit"
               [routerLink]="['/department', department.id, 'edit']"
               class="btn btn-primary btn-sm"
+              [disabled]="!accountService.isEditor()"
             >
               <span class="d-none d-md-inline">Edit</span>
             </button>
 
-            <button type="submit" class="btn btn-danger btn-sm" (click)="delete(department)">
+            <button type="submit" class="btn btn-danger btn-sm" (click)="delete(department)" [disabled]="!accountService.isEditor()">
               <span class="d-none d-md-inline">Delete</span>
             </button>
           </div>

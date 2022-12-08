@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import {DepartmentsService} from "../departments.service";
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {DepartmentsDeleteComponent} from "../delete/departments-delete.component";
+import {AccountService} from "../../core/auth/account.service";
 
 @Component({
   selector: 'app-departments',
@@ -14,7 +15,8 @@ export class DepartmentsComponent implements OnInit{
   departments? : Department[];
   constructor(protected activatedRoute: ActivatedRoute,
               protected service: DepartmentsService,
-              protected modalService: NgbModal) {}
+              protected modalService: NgbModal,
+              protected accountService: AccountService) {}
   ngOnInit(): void {
     this.loadData();
   }

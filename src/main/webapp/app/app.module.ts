@@ -8,6 +8,7 @@ import { DepartmentsComponent } from './departments/list/departments.component';
 import {FormsModule} from "@angular/forms";
 import { DepartmentsModule } from './departments/departments.module';
 import { HttpClientModule } from '@angular/common/http';
+import {NgbDropdown, NgbDropdownItem, NgbDropdownMenu, NgbDropdownToggle} from "@ng-bootstrap/ng-bootstrap";
 
 @NgModule({
   declarations: [
@@ -20,7 +21,11 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     FormsModule,
     DepartmentsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbDropdown,
+    NgbDropdownMenu,
+    NgbDropdownItem,
+    NgbDropdownToggle
   ],
   providers: [],
   bootstrap: [AppComponent]

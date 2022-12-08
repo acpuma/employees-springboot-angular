@@ -1,9 +1,20 @@
-<nav data-cy="navbar" class="navbar navbar-dark navbar-expand-md bg-black">
+<nav data-cy="navbar" class="navbar navbar-dark navbar-expand-sm bg-black">
   <div class="container-fluid">
     <span class="logo-img m-3 mb-0 mt-0"></span>
   <h1>{{title}} App </h1>
   <div class="navbar-collapse collapse" id="navbarResponsive">
   <ul class="navbar-nav ms-auto">
+
+      <div ngbDropdown class="d-inline-block small bg-black nav-item">
+        <button ngbDropdownToggle id="roleDd"  type="button" class="btn btn-group-sm btn-dark">
+          ROLE
+        </button>
+        <div ngbDropdownMenu aria-labelledby="roleDd" class="bg-black">
+          <button ngbDropdownItem class="text-white nav-link btn btn-sm" (click)="loginEditor()">EDITOR</button>
+          <button ngbDropdownItem class="text-white nav-link btn btn-sm" (click)="loginReader()">READER</button>
+        </div>
+      </div>
+
     <li class="nav-item">
       <a class="nav-link" routerLink="/employees-component" routerLinkActive="active" >
         Employees</a></li>

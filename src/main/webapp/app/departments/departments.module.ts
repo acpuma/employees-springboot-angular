@@ -6,6 +6,7 @@ import { DepartmentsDetailComponent } from './detail/departments-detail.componen
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { DepartmentsDeleteComponent } from './delete/departments-delete.component';
 import { DepartmentsUpdateComponent } from './update/departments-update.component';
+import {AccountService} from "../core/auth/account.service";
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import { DepartmentsUpdateComponent } from './update/departments-update.componen
         DepartmentsRoutingModule,
         FormsModule,
         ReactiveFormsModule
-    ]
+    ],
+  providers: [AccountService]
 })
 export class DepartmentsModule { }
