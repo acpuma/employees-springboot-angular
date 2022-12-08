@@ -1,19 +1,27 @@
 import { Injectable } from '@angular/core';
-import {of} from "rxjs";
+import {Observable, of} from "rxjs";
 import {Authority} from "../config/authority.constants";
+import {HttpClient} from "@angular/common/http";
 
 @Injectable({
   providedIn: 'root'
 })
 export class AccountService {
+  constructor(protected http: HttpClient) {
+  }
+  protected resourceUrl = "http://localhost:8080/api/users/"
   isLogin = false;
   roleAs: string | null = null;
   login(value:string) {
-    this.isLogin = true;
-    this.roleAs = value;
-    localStorage.setItem(Authority.STATE, 'true');
-    localStorage.setItem(Authority.ROLE, this.roleAs);
-    return of({success: this.isLogin, role: this.roleAs});
+    this.findAuth(value).subscribe(auths => {
+      console.log("Login User : "+ value +" : " + JSON.stringify(auths));
+      this.isLogin = true;
+      this.roleAs = auths[0] as string;
+      console.log("RoleAs: " + this.roleAs)
+      localStorage.setItem(Authority.STATE, 'true');
+      localStorage.setItem(Authority.ROLE, this.roleAs);
+      return of({success: this.isLogin, role: this.roleAs});
+    })
   }
 
   logout() {
@@ -41,5 +49,9 @@ export class AccountService {
 
   public isEditor() {
     return this.getRole()===Authority.EDITOR;
+  }
+
+  findAuth(login: string): Observable<string[]> {
+    return this.http.get<string[]>(`${this.resourceUrl}auth/${login}`);
   }
 }

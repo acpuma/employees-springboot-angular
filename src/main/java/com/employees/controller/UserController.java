@@ -1,5 +1,6 @@
 package com.employees.controller;
 
+import com.employees.domain.Authority;
 import com.employees.domain.User;
 import com.employees.services.UserService;
 import org.springframework.http.HttpStatus;
@@ -12,9 +13,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/api/user")
+@RequestMapping("/api/users")
 public class UserController {
     private final UserService userService;
 
@@ -38,7 +41,8 @@ public class UserController {
     }
 
     @GetMapping("/auth/{login}")
-    public User getUserAuthority(@PathVariable String login) {
-        return userService.findOneWithAuthoritiesByLogin(login);
+    public Set<String> getUserAuthorities(@PathVariable String login) {
+        return userService.getUserByLogin(login).get().getAuthorities()
+          .stream().map(Authority::getRole).collect(Collectors.toSet());
     }
 }
