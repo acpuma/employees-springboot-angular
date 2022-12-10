@@ -1,0 +1,107 @@
+<div>
+  <h2 id="page-heading">
+    <span>Employees</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2">
+        <span>Refresh list</span>
+      </button>
+
+      <button
+        class="btn btn-primary"
+        [routerLink]="['/employee/new']"
+      >
+        <span> Create a new Employee </span>
+      </button>
+    </div>
+  </h2>
+  <div class="alert alert-warning" id="no-result" *ngIf="employees?.length === 0">
+    <span>No Employees found</span>
+  </div>
+
+  <div class="table-responsive table-entities" style="height: 75vh" id="entities" *ngIf="employees && employees.length > 0">
+
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+      <tr>
+        <th scope="col" >
+          <div class="d-flex">
+            <span>ID</span>
+          </div>
+        </th>
+        <th scope="col">
+          <div class="d-flex">
+            <span>First Name</span>
+          </div>
+        </th>
+        <th scope="col">
+          <div class="d-flex">
+            <span>Last Name</span>
+          </div>
+        </th>
+        <th scope="col">
+          <div class="d-flex">
+            <span>Salary</span>
+          </div>
+        </th>
+        <th scope="col">
+          <div class="d-flex">
+            <span>Birth Date</span>
+          </div>
+        </th>
+        <th scope="col">
+          <div class="d-flex">
+            <span>Active</span>
+          </div>
+        </th>
+        <th scope="col">
+          <div class="d-flex">
+            <span>Department</span>
+          </div>
+        </th>
+        <th scope="col"></th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let employee of employees;">
+        <td>
+          <a [routerLink]="['/employee', employee.id, 'view']">{{ employee.id }}</a>
+        </td>
+        <td>{{ employee.firstName }}</td>
+        <td>{{ employee.lastName }}</td>
+        <td>{{ employee.salary }}</td>
+        <td>{{ employee.birthDate}}</td>
+        <td>{{ employee.active }}</td>
+        <td>
+          <div *ngIf="employee.department">
+            <a [routerLink]="['/department', employee.department.id, 'view']">{{ employee.department.id }}</a>
+          </div>
+        </td>
+        <td class="text-end">
+          <div class="btn-group">
+            <button
+              type="submit"
+              [routerLink]="['/employee', employee.id, 'view']"
+              class="btn btn-info btn-sm"
+            >
+              <span class="d-none d-md-inline">View</span>
+            </button>
+
+            <button
+              type="submit"
+              [routerLink]="['/employee', employee.id, 'edit']"
+              class="btn btn-primary btn-sm"
+            >
+              <span class="d-none d-md-inline">Edit</span>
+            </button>
+
+            <button type="submit" (click)="delete(employee)" class="btn btn-danger btn-sm">
+              <span class="d-none d-md-inline">Delete</span>
+            </button>
+          </div>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
