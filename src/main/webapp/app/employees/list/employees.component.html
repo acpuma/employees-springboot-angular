@@ -91,11 +91,13 @@
               type="submit"
               [routerLink]="['/employee', employee.id, 'edit']"
               class="btn btn-primary btn-sm"
+              [disabled]="!accountService.isEditor()"
             >
               <span class="d-none d-md-inline">Edit</span>
             </button>
 
-            <button type="submit" (click)="delete(employee)" class="btn btn-danger btn-sm">
+            <button type="submit" (click)="delete(employee)" class="btn btn-danger btn-sm"
+                    [disabled]="!accountService.isEditor()">
               <span class="d-none d-md-inline">Delete</span>
             </button>
           </div>

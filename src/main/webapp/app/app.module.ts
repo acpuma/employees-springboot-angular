@@ -9,6 +9,7 @@ import {FormsModule} from "@angular/forms";
 import { DepartmentsModule } from './departments/departments.module';
 import { HttpClientModule } from '@angular/common/http';
 import {NgbDropdown, NgbDropdownItem, NgbDropdownMenu, NgbDropdownToggle} from "@ng-bootstrap/ng-bootstrap";
+import {EmployeesModule} from "./employees/employees.module";
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import {NgbDropdown, NgbDropdownItem, NgbDropdownMenu, NgbDropdownToggle} from "
     AppRoutingModule,
     FormsModule,
     DepartmentsModule,
+    EmployeesModule,
     HttpClientModule,
     NgbDropdown,
     NgbDropdownMenu,
