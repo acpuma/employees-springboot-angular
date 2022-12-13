@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {Department} from "../department.model";
 import {ActivatedRoute, Router} from "@angular/router";
 import {DepartmentsService} from "../departments.service";
+import {AccountService} from "../../core/auth/account.service";
 
 @Component({
   selector: 'app-departments-detail',
@@ -11,7 +12,8 @@ export class DepartmentsDetailComponent implements OnInit{
   @Input() department?: Department;
   departmentId?: number | null = null;
   constructor(protected route: ActivatedRoute,
-              protected service: DepartmentsService) {}
+              protected service: DepartmentsService,
+              protected accountService: AccountService) {}
   ngOnInit(): void {
     this.departmentId = Number(this.route.snapshot.paramMap.get('id'));
     console.log('Department Id : ' + this.departmentId)

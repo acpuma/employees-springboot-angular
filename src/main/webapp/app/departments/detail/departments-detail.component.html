@@ -17,7 +17,10 @@
         <span>Back</span>
       </button>
 
-      <button type="button" class="btn btn-primary">
+      <button type="button" class="btn btn-primary"
+              [routerLink]="['/department', department.id, 'edit']"
+              class="btn btn-primary btn-sm"
+              [disabled]="!accountService.isEditor()">
         <span>Edit</span>
       </button>
     </div>

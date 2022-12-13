@@ -5,6 +5,7 @@ import {Authority} from "../core/config/authority.constants";
 import {EmployeesComponent} from "./list/employees.component";
 import {EmployeesDeleteComponent} from "./delete/employees-delete.component";
 import {EmployeesDetailComponent} from "./detail/employees-detail.component";
+import {EmployeesUpdateComponent} from "./update/employees-update.component";
 
 const routes: Routes = [
   {path: '', component: EmployeesComponent},
@@ -12,6 +13,10 @@ const routes: Routes = [
     canActivate: [UserRouteAccessService]},
   {path: 'employee/:id/delete', component: EmployeesDeleteComponent,
     canActivate: [UserRouteAccessService], data: { role: Authority.EDITOR}},
+  {path: 'employee/:id/edit', component: EmployeesUpdateComponent,
+    canActivate: [UserRouteAccessService], data: { role: Authority.EDITOR}},
+  {path: 'employee/new', component: EmployeesUpdateComponent,
+    canActivate: [UserRouteAccessService], data: { role: Authority.EDITOR}}
 ];
 
 @NgModule({

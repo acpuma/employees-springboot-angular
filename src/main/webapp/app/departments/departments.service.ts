@@ -36,4 +36,8 @@ export class DepartmentsService {
   getDepartmentIdentifier(department: Pick<Department,  'id'>): number | null {
     return department.id;
   }
+
+  compareDepartment(o1: Pick<Department, 'id'> | null, o2: Pick<Department, 'id'> | null): boolean {
+    return o1 && o2 ? this.getDepartmentIdentifier(o1) === this.getDepartmentIdentifier(o2) : o1 === o2;
+  }
 }

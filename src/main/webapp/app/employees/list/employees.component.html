@@ -74,7 +74,7 @@
         <td>{{ employee.active }}</td>
         <td>
           <div *ngIf="employee.department">
-            <a [routerLink]="['/department', employee.department.id, 'view']">{{ employee.department.id }}</a>
+            <a [routerLink]="['/department', employee.department.id, 'view']">{{ employee.department.departmentName }}</a>
           </div>
         </td>
         <td class="text-end">

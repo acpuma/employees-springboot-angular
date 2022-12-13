@@ -32,7 +32,6 @@ public class Employee implements Serializable {
     private Boolean active;
 
     @ManyToOne
-    @JsonIgnore
     private Department department;
 
 }

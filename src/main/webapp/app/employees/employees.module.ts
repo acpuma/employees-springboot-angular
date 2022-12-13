@@ -5,11 +5,13 @@ import {EmployeesRoutingModule} from "./employees-routing.module";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {AccountService} from "../core/auth/account.service";
 import { EmployeesDetailComponent } from './detail/employees-detail.component';
+import { EmployeesUpdateComponent } from './update/employees-update.component';
 
 @NgModule({
   declarations: [
     EmployeesDeleteComponent,
-    EmployeesDetailComponent
+    EmployeesDetailComponent,
+    EmployeesUpdateComponent
   ],
   imports: [
     CommonModule,
