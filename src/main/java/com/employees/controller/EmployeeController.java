@@ -34,7 +34,7 @@ public class EmployeeController {
         return employeeRepository.findAll();
     }
 
-    @GetMapping("/employees/{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<Employee> getEmployee(@PathVariable Long id) {
         return new ResponseEntity<>(employeeRepository.findById(id).get(),HttpStatus.OK);
     }

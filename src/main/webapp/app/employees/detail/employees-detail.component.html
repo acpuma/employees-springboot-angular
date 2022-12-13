@@ -1,0 +1,39 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="employee">
+      <h2><span>Employee</span></h2>
+
+      <hr/>
+
+      <dl class="row-md">
+        <dt><span>ID</span></dt>
+        <dd><span>{{employee.id}}</span></dd>
+        <dt><span>First Name</span></dt>
+        <dd><span>{{employee.firstName}}</span></dd>
+        <dt><span>Last Name</span></dt>
+        <dd><span>{{employee.lastName}}</span></dd>
+        <dt><span>Salary</span></dt>
+        <dd><span>{{employee.salary}}</span></dd>
+        <dt><span>Birth Date</span></dt>
+        <dd><span>{{employee.birthDate}}</span></dd>
+        <dt><span>Active</span></dt>
+        <dd><span>{{employee.active}}</span></dd>
+        <dt><span>Department</span></dt>
+        <dd>
+          <div *ngIf="employee.department">
+            <a [routerLink]="['/department', employee.department.id, 'view']">
+              {{employee.department.id}}
+            </a>
+          </div>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info">
+        <span>Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/employee', employee.id, 'edit']" class="btn btn-primary">
+        <span>Edit</span>
+      </button>
+    </div>
+  </div>
+</div>
