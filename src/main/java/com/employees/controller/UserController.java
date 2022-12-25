@@ -40,9 +40,4 @@ public class UserController {
         return userService.getUserByLogin(login).get().getAuthorities()
             .stream().map(Authority::getRole).collect(Collectors.toSet());
     }
-
-    @GetMapping("/api/authentication")
-    public boolean login(@RequestBody User user) {
-        return userService.login(user);
-    }
 }

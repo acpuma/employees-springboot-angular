@@ -38,26 +38,27 @@ public class SecurityConfiguration {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
-            .httpBasic().disable().formLogin().disable().csrf().disable()
-            .formLogin()
-            .loginProcessingUrl("/api/authentication")
-            .successHandler(successHandler())
-            .failureHandler(failureHandler())
-            .permitAll()
+            .httpBasic().disable().formLogin().disable().csrf().disable().cors()
             .and()
-            .logout()
-            .logoutUrl("/api/logout")
-            .permitAll()
+                .formLogin()
+                .loginProcessingUrl("/api/authentication")
+                .successHandler(successHandler())
+                .failureHandler(failureHandler())
+                .permitAll()
             .and()
-            .headers().frameOptions().disable()
+                .logout()
+                .logoutUrl("/api/logout")
+                .permitAll()
             .and()
-            .authorizeHttpRequests()
-            .antMatchers(HttpMethod.OPTIONS, "/**").permitAll()
-            .antMatchers("/index.html", "/", "/login").permitAll()
-            .antMatchers("/app/**/*.{js,html}").permitAll()
-            .antMatchers("/swagger-ui/**").permitAll()
-            .antMatchers("/h2-console/**").permitAll()
-            .antMatchers("/api/**").authenticated();
+                .headers().frameOptions().disable()
+            .and()
+                .authorizeHttpRequests()
+                .antMatchers(HttpMethod.OPTIONS, "/**").permitAll()
+                .antMatchers("/index.html", "/", "/login").permitAll()
+                .antMatchers("/app/**/*.{js,html}").permitAll()
+                .antMatchers("/swagger-ui/**").permitAll()
+                .antMatchers("/h2-console/**").permitAll()
+                .antMatchers("/api/**").authenticated();
 
         return http.build();
     }

@@ -28,7 +28,8 @@ export class AccountService {
       localStorage.setItem(Authority.STATE, 'true');
       localStorage.setItem(Authority.ROLE, this.roleAs);
       return of({success: this.isLogin, role: this.roleAs});
-    })
+    },
+      error => console.log(error.message))
   }
 
   logout() {

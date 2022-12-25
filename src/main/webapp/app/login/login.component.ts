@@ -21,12 +21,7 @@ export class LoginComponent implements OnInit, AfterViewChecked {
   }
 
   ngOnInit(): void {
-    /*
-    if (this.accountService.isLoggedIn()) {
-        this.router.navigate(['']);
-    }*/
     this.authenticationError = false;
-    console.log("HasError : " + this.authenticationError);
   }
 
   login(): void {
