@@ -1,9 +1,9 @@
-INSERT INTO authority(role) VALUES ('Editor');
-INSERT INTO authority(role) VALUES ('Reader');
-insert into users (login, password, first_name, last_name, email, activated) values ('admin' ,'admin','Super', 'Hero', 'a@a.com', true);
-insert into users (login, password, first_name, last_name, email, activated) values ('user' ,'user','User1First', 'User1Last', 'u@u.com', true);
-INSERT INTO users_authorities(user_id,authorities_role) VALUES (1,'Editor');
-INSERT INTO users_authorities(user_id,authorities_role) VALUES (2,'Reader');
+INSERT INTO authority(role) VALUES ('ROLE_EDITOR');
+INSERT INTO authority(role) VALUES ('ROLE_READER');
+insert into users (login, password, first_name, last_name, email, activated) values ('editor' ,'$2a$10$Bne13DYG8hq.0Uu7J4yVhuKQRZLwMp4LLQypr5EUAD3yJ9ts4inem','William', 'Shakespare', 'a@a.com', true);
+insert into users (login, password, first_name, last_name, email, activated) values ('reader' ,'$2a$10$QHnm5eStdz.YYCsuB4mxqene1NGy.ZfUtOCxwQXoIgbwiHF4BE0a.','Robin', 'Hood', 'u@u.com', true);
+INSERT INTO users_authorities(user_id,authorities_role) VALUES (1,'ROLE_EDITOR');
+INSERT INTO users_authorities(user_id,authorities_role) VALUES (2,'ROLE_READER');
 INSERT INTO department(department_name) VALUES ('Administration');
 INSERT INTO department(department_name) VALUES ('Marketing');
 INSERT INTO department(department_name) VALUES ('Purchasing');

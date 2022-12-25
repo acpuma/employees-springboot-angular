@@ -1,10 +1,12 @@
 package com.employees.controller;
 
+import com.employees.config.AuthoritiesConstants;
 import com.employees.domain.Department;
 import com.employees.repository.DepartmentRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.*;
 
 import javax.transaction.Transactional;
@@ -37,11 +39,13 @@ public class DepartmentController {
     }
 
     @PutMapping("/{id}")
+    @Secured(AuthoritiesConstants.EDITOR)
     public Department updateDepartment(@PathVariable Long id, @RequestBody Department department) {
       return departmentRepository.save(department);
     }
 
     @DeleteMapping("/{id}")
+    @Secured(AuthoritiesConstants.EDITOR)
     public void deleteDepartment(@PathVariable Long id) {
         log.info("Deleting department : " + id);
         departmentRepository.deleteById(id);

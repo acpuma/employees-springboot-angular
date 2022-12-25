@@ -37,4 +37,10 @@ public class UserService {
     public User findOneWithAuthoritiesByLogin(String login) {
         return userRepository.findOneWithAuthoritiesByLogin(login).get();
     }
+
+    public boolean login(User user) {
+        System.out.println("Login: " + user.getLogin());
+        User dbUser = userRepository.findByLogin(user.getLogin()).get();
+        return user.getPassword() == dbUser.getPassword();
+    }
 }
