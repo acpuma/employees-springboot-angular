@@ -3,25 +3,24 @@
     <span class="logo-img m-3 mb-0 mt-0"></span>
   <h1>{{title}} App </h1>
   <div class="navbar-collapse collapse" id="navbarResponsive">
-  <ul class="navbar-nav ms-auto">
+      <ul class="navbar-nav ms-auto" [ngSwitch]="username == null">
+          <li class="nav-item" *ngSwitchCase="false">
+              <a class="nav-link" routerLink="/employees-component" routerLinkActive="active">
+                  Employees</a></li>
+          <li class="nav-item" *ngSwitchCase="false">
+              <a class="nav-link" routerLink="/departments-component" routerLinkActive="active"
+                 ariaCurrentWhenActive="page">
+                  Departments</a></li>
+          <li class="nav-item" *ngSwitchCase="true">
+              <a class="nav-link" routerLink="/login" routerLinkActive="active">Login</a></li>
+          <li class="nav-item" *ngSwitchCase="false">
+              <a class="nav-link" (click)="logout()">
+                  Logout
+                  <div class="text-sm-center" style="font-size: xx-small">{{accountService.getUsername()}}</div>
+              </a>
+          </li>
 
-      <div ngbDropdown class="d-inline-block small bg-black nav-item">
-        <button ngbDropdownToggle id="roleDd"  type="button" class="btn btn-group-sm btn-dark">
-          USER
-        </button>
-        <div ngbDropdownMenu aria-labelledby="roleDd" class="bg-black">
-          <button ngbDropdownItem class="text-white nav-link btn btn-sm" (click)="loginEditor()">EDITOR</button>
-          <button ngbDropdownItem class="text-white nav-link btn btn-sm" (click)="loginReader()">READER</button>
-        </div>
-      </div>
-
-    <li class="nav-item">
-      <a class="nav-link" routerLink="/employees-component" routerLinkActive="active" >
-        Employees</a></li>
-    <li class="nav-item">
-      <a class="nav-link" routerLink="/departments-component" routerLinkActive="active" ariaCurrentWhenActive="page">
-        Departments</a></li>
-  </ul>
+      </ul>
   </div>
   </div>
 </nav>
