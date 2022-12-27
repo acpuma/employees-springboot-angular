@@ -11,10 +11,11 @@ https://github.com/acpuma/employees-springboot-angular/releases/
 Download and run with java:
 java -jar employees-1.0.0.jar
 
-(Application with run on default port 8080)
+(Application will run on default port 8080)
 
 ## Local build and run
-Run Npm and Mvn build commands to build project: 
+Run Npm and Maven build commands to build project:
+
 npm install 
 
 npm run build 
