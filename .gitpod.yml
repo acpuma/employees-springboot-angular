@@ -1,4 +1,8 @@
 tasks:
-  - before: echo "127.0.0.1 localhost" | sudo tee -a /etc/hosts
-  - init: npm install && echo N | npm run build && ./mvnw install -DskipTests=false
+  - init: |
+      sed -i -e "s;http://localhost:8100;$(gp url 8080);" /workspace/employees-springboot-angular/src/main/java/com/employees/EmployeesApplication.java
+      sed -i -e "s;http://localhost:4200;$(gp url 8080);" /workspace/employees-springboot-angular/src/main/java/com/employees/config/SecurityConfiguration.java
+      npm install
+      echo N | npm run build
+      ./mvnw install -DskipTests=false
     command: mvn spring-boot:run
