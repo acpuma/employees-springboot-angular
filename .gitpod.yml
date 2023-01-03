@@ -1,3 +1,4 @@
 tasks:
+  - before: echo "127.0.0.1 localhost" | sudo tee -a /etc/hosts
   - init: npm install && echo N | npm run build && ./mvnw install -DskipTests=false
-    command: npm run start
+    command: mvn spring-boot:run
