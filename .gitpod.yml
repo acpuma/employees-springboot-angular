@@ -6,3 +6,7 @@ tasks:
       echo N | npm run build
       ./mvnw install -DskipTests=false
     command: mvn spring-boot:run
+ports:
+  - name: WebApp
+    port: 8080
+    onOpen: open-browser
