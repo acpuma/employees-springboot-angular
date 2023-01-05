@@ -2,6 +2,7 @@ tasks:
   - init: |
       sed -i -e "s;http://localhost:8100;$(gp url 8080);" /workspace/employees-springboot-angular/src/main/java/com/employees/EmployeesApplication.java
       sed -i -e "s;http://localhost:4200;$(gp url 8080);" /workspace/employees-springboot-angular/src/main/java/com/employees/config/SecurityConfiguration.java
+      sed -i -e "s;http://localhost:8080;$(gp url 8080);" /workspace/employees-springboot-angular/src/main/webapp/environments/environment.ts
       npm install
       echo N | npm run build
       ./mvnw install -DskipTests=false
