@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpResponse} from "@angular/common/http";
-import {Observable, tap} from "rxjs";
-import {Department, NewDepartment} from "./department.model";
+import {Observable} from "rxjs";
+import {Department} from "./department.model";
+import {environment} from "../../environments/environment";
 
 export type EntityResponseType= HttpResponse<Department>;
 @Injectable({
@@ -9,7 +10,7 @@ export type EntityResponseType= HttpResponse<Department>;
 })
 
 export class DepartmentsService {
-  protected resourceUrl = 'http://localhost:8080/api/departments/';
+  protected resourceUrl = environment.apiUrl + '/api/departments/';
   constructor(protected http: HttpClient) { }
 
   find(id: number): Observable<Department> {

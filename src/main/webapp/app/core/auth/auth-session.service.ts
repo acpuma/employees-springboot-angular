@@ -2,13 +2,13 @@ import {Injectable} from '@angular/core';
 import {Login} from "../../login/login.model";
 import {map, Observable} from "rxjs";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
-import {AccountService} from "./account.service";
+import {environment} from "../../../environments/environment";
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthServerProvider {
-  protected resourceUrl = "http://localhost:8080/api/"
+  protected resourceUrl = environment.apiUrl+"/api/"
 
   constructor(private http: HttpClient) {
   }

@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {Observable, of, ReplaySubject} from "rxjs";
 import {Authority} from "../config/authority.constants";
 import {HttpClient} from "@angular/common/http";
+import {environment} from "../../../environments/environment";
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,7 @@ export class AccountService {
   constructor(protected http: HttpClient) {
   }
 
-  protected resourceUrl = "http://localhost:8080/api/users/"
+  protected resourceUrl = environment.apiUrl + "/api/users/"
   isLogin = false;
   roleAs: string | null = null;
   protected username: string | null = null;

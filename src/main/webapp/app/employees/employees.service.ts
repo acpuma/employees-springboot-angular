@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient, HttpResponse} from "@angular/common/http";
 import {Observable, tap} from "rxjs";
 import {Employee, NewEmployee} from "./employee.model";
+import {environment} from "../../environments/environment";
 
 export type EntityResponseType= HttpResponse<Employee>;
 @Injectable({
@@ -9,7 +10,7 @@ export type EntityResponseType= HttpResponse<Employee>;
 })
 
 export class EmployeesService {
-  protected resourceUrl = 'http://localhost:8080/api/employees/';
+  protected resourceUrl = environment.apiUrl + '/api/employees/';
   constructor(protected http: HttpClient) { }
 
   find(id: number): Observable<Employee> {
